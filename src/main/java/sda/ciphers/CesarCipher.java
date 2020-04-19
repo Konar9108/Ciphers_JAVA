@@ -43,7 +43,7 @@ public class CesarCipher {
         encoded = tempEncode.toString();
     }
 
-    private int getEncodedPosition(int position) {
+    int getEncodedPosition(int position) {
         return (position + 3) % 26;
     }
 
@@ -70,7 +70,7 @@ public class CesarCipher {
         decoded = tempEncode.toString();
     }
 
-    private int getDecodedPosition(int position) {
+    int getDecodedPosition(int position) {
         return (position + 23) % 26;
     }
 

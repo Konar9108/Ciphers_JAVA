@@ -1,17 +1,15 @@
 package sda.ciphers;
 
 public class AtBashCipher {
-
+    private String alphabet = "abcdefghijklmnopqrstuvwxyz";
     private String base;
     private String encoded;
     private String decoded;
 
-    public AtBashCipher(String base) {
-        this.base = base;
-        encoded = "";
-        decoded = "";
+    public AtBashCipher(String toEncode) {
+        this();
+        base = toEncode;
     }
-
 
     public AtBashCipher() {
         base = "";
@@ -19,50 +17,34 @@ public class AtBashCipher {
         decoded = "";
     }
 
-    public String getEncoded() {
-        return encoded;
-    }
-
-    public String getDecoded() {
-        return decoded;
-    }
-
     public String getBase() {
         return base;
     }
 
     public void encode() {
-
-        StringBuilder tempEncode = new StringBuilder();
-        int ascii;
-        int temp;
-        for (int i = 0; i < base.length(); i++) {
-            char letter = base.charAt(i);
-
-            if(Character.isWhitespace(letter)) tempEncode.append(letter);
-            if (!Character.isLetter(letter)) continue;
+        StringBuilder stringBuilder = new StringBuilder();
+        final int size = base.length();
+        int index = -1;
+        while (++index < size) {
+            final char letter = base.charAt(index);
             final boolean isLower = Character.isLowerCase(letter);
-            if (!isLower) {
-                letter = Character.toLowerCase(letter);
-            }
-            ascii = letter;
-            temp = ascii - 97;
-            ascii = 122 - temp;
-            letter = (char) ascii;
-            if (!isLower) {
-                letter = Character.toUpperCase(letter);
-            }
-            tempEncode.append(letter);
+            final int position = alphabet.indexOf(letter);
+            final char newLetter = alphabet.charAt(25 - position);
+            stringBuilder.append(newLetter);
         }
-        encoded = tempEncode.toString();
-
-    }
-
-    public void decode(){
-        encode();
+        encoded = stringBuilder.toString();
         decoded = encoded;
-
     }
 
+    public String getEncode() {
+        return encoded;
+    }
 
+    public void decode() {
+        encode();
+    }
+
+    public String getDecoded() {
+        return decoded;
+    }
 }

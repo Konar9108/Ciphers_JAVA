@@ -1,36 +1,37 @@
 package sda.ciphers;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("szyfr AtBash - testy")
 class AtBashCipherTest {
+    public static final String INPUT = "abcxyz";
+    public static final String OUTPUT = "zyxcba";
+    private AtBashCipher cipherNoArg;
+    private AtBashCipher cipherArgs;
 
+    @BeforeEach
+    private void setUp() {
+        cipherNoArg = new AtBashCipher();
+        cipherArgs = new AtBashCipher(INPUT);
+    }
 
-    @DisplayName("check if non arg constructor has empty bot not null fields")
+    @DisplayName("When no arg constructor then empty encode string and empty decode string")
     @Test
-    public void emptyConstructorChecker(){
-        AtBashCipher atBashCipher = new AtBashCipher();
-        assertEquals("",atBashCipher.getDecoded());
-        assertEquals("",atBashCipher.getEncoded());
-        assertEquals("",atBashCipher.getBase());
-
+    public void emptyArgConstructorReturnEmptyString() {
+        assertEquals("", cipherNoArg.getBase());
+        assertEquals("", cipherNoArg.getEncode());
+        assertEquals("", cipherNoArg.getDecoded());
     }
 
-    //
-
-    @DisplayName("Check encode function")
-    @ParameterizedTest(name = "Test case {index} : input {0} gives result {1}")
-    @CsvSource(value = {"abc,zyx","xyz,cba", "xYz,cBa", "def,wvu", "Janusz kurcze ocb, Qzmfha pfixav lxy"})
-    public void getEncodedStringWhenGivenParamInput(String entry, String result) {
-        AtBashCipher atBashCipher = new AtBashCipher(entry);
-        atBashCipher.encode();
-        String encoded = atBashCipher.getEncoded();
-        assertEquals(result,encoded);
-
+    @DisplayName("Should be encoded sentence")
+    @Test
+    public void shouldReturnEncodeSentence() {
+        cipherArgs.encode();
+        final String encode = cipherArgs.getEncode();
+        assertEquals(OUTPUT, encode);
     }
+
 }
