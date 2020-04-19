@@ -29,8 +29,8 @@ What we'll do during this project
     
     
     
-  [cesar_page]: <src/main/java/sda/cipher/CesarGuide.md> (Cesar cipher guideline)
-  [rot13_page]: <src/main/java/sda/cipher/Rot13Guide.md> (ROT-13 cipher guideline)
-  [vigenere_page]: <src/main/java/sda/cipher/VigenereGuide.md> (Vigenere cipher guideline)
-  [matrix_page]: <src/main/java/sda/cipher/MatrixGuide.md> (Matrix cipher guideline)
-  [AtBash_page]: <src/main/java/sda/cipher/AtBashGuide.md> (AtBash cipher guideline)
+  [cesar_page]: <src/main/java/sda/ciphers/CesarGuide.md> (Cesar cipher guideline)
+  [rot13_page]: <src/main/java/sda/ciphers/Rot13Guide.md> (ROT-13 cipher guideline)
+  [vigenere_page]: <src/main/java/sda/ciphers/VigenereGuide.md> (Vigenere cipher guideline)
+  [matrix_page]: <src/main/java/sda/ciphers/MatrixGuide.md> (Matrix cipher guideline)
+  [AtBash_page]: <src/main/java/sda/ciphers/AtBashGuide.md> (AtBash cipher guideline)
