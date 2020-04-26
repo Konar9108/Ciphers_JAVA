@@ -2,6 +2,7 @@ package sda.gui.tool;
 
 import sda.ciphers.CesarCipher;
 import sda.ciphers.ICipher;
+import sda.ciphers.NoneCipher;
 import sda.ciphers.Rot13Cipher;
 
 public class CipherFactory {
@@ -11,7 +12,7 @@ public class CipherFactory {
 
             case "CESAR" : return new CesarCipher();
             case "ROT-13" : return new Rot13Cipher();
-            default: return new CesarCipher();
+            default: return new NoneCipher();
         }
 
     }
