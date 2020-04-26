@@ -33,12 +33,16 @@ public class ProceedAlgorithm implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         File inFile = Path.of(input.getText()).toFile();
         File outFile = Path.of(output.getText()).toFile();
-        log.append("Algo: " + cipher.getSelectedItem() + " encode: " + encode.isSelected() + "\n");
+        log.append("Algorithm: " + cipher.getSelectedItem() + ((encode.isSelected()) ? " encode\n" : " decode\n"));
         log.append("In: " + inFile.getName() + " out: " + outFile.getName() + "\n");
-        log.append(this.toString() + "\n");
+
+        //nalezy pobrac algorytm szyfrowania
+
         try (final BufferedReader fileReader = new BufferedReader(new FileReader(inFile))) {
-            final String line = fileReader.readLine();
-            log.append("Input " + line + "\n");
+            String line;
+            while ((line = fileReader.readLine()) != null) {
+                log.append("Input " + line + "\n");
+            }
         } catch (IOException ex) {
             log.append(ex + "ERROR\n");
         }
