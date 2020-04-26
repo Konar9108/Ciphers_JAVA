@@ -1,17 +1,22 @@
 package sda.gui.tool;
 
-import sda.ciphers.CesarCipher;
-import sda.ciphers.ICipher;
-import sda.ciphers.NoneCipher;
-import sda.ciphers.Rot13Cipher;
+import sda.ciphers.*;
+
+import javax.crypto.Cipher;
 
 public class CipherFactory {
 
     static ICipher getAlgorithm(String cipher) {
-        switch (cipher.toUpperCase()) {
+        CiphersList algorithm = CiphersList.getCipher(cipher);
 
-            case "CESAR" : return new CesarCipher();
-            case "ROT-13" : return new Rot13Cipher();
+        switch (algorithm) {
+
+            case CESAR: return new CesarCipher();
+            case ROT13:  return new Rot13Cipher();
+            case ATBASH:  return new AtBashCipher();
+            case MATRIX:  return new MatrixCipher();
+            case SHA256:
+            case VIGENERE:
             default: return new NoneCipher();
         }
 
