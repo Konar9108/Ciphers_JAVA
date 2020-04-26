@@ -3,10 +3,7 @@ package sda.gui.tool;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Field;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -38,10 +35,16 @@ public class ProceedAlgorithm implements ActionListener {
 
         //nalezy pobrac algorytm szyfrowania
 
-        try (final BufferedReader fileReader = new BufferedReader(new FileReader(inFile))) {
+        //otwiera i zamyka
+        try (
+                final BufferedReader fileReader = new BufferedReader(new FileReader(inFile)); //czytanie plikow
+                final BufferedWriter fileWriter = new BufferedWriter(new FileWriter(outFile)) // zapisywanie plikow
+        ){
+            fileWriter.write("");
             String line;
             while ((line = fileReader.readLine()) != null) {
                 log.append("Input " + line + "\n");
+                fileWriter.append(line).append("\n");
             }
         } catch (IOException ex) {
             log.append(ex + "ERROR\n");
