@@ -11,6 +11,10 @@ public class CesarCipher {
         base = toEncode;
     }
 
+    public void setBase(String base){
+        this.base = base;
+    }
+
     public CesarCipher() {
         base = "";
         encoded = "";
@@ -48,6 +52,7 @@ public class CesarCipher {
     }
 
     public String getEncode() {
+
         return encoded;
     }
 
