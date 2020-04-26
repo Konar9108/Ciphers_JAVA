@@ -2,6 +2,7 @@ package sda.gui;
 
 import sda.ciphers.CiphersList;
 import sda.gui.tool.InputManager;
+import sda.gui.tool.MailManager;
 import sda.gui.tool.ProceedAlgorithm;
 
 import javax.swing.*;
@@ -43,6 +44,10 @@ public class MainFrame extends JFrame implements ActionListener {
         exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.ALT_MASK));
         exit.addActionListener(this);
         fileMenu.add(exit);
+
+        JMenuItem mailing = new JMenuItem("Send Email");
+        mailing.addActionListener(new MailManager());
+        optMenu.add(mailing);
 
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(fileMenu);
