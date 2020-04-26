@@ -2,11 +2,31 @@ package sda.ciphers;
 
 import java.util.Arrays;
 
-public class MatrixCipher {
+public class MatrixCipher implements ICipher {
     public static final char BLANK = ' ';
     private char[][] matrix;
     private String sentenceEncoded;
     private String sentenceDecoded;
+
+
+
+    @Override
+    public void setBase(String base) {
+        this.sentenceDecoded = base;
+    }
+
+    @Override
+    public void encode() {
+        createMatrix();
+        eraseMatrix();
+        writeDecodedSentenceToMatrix();
+        readEncodedSentenceFromMatrix();
+    }
+
+    @Override
+    public void decode() {
+        encode();
+    }
 
 
     public MatrixCipher(String secret) {
@@ -22,10 +42,6 @@ public class MatrixCipher {
     }
 
     public String getEncode() {
-        createMatrix();
-        eraseMatrix();
-        writeDecodedSentenceToMatrix();
-        readEncodedSentenceFromMatrix();
         return sentenceEncoded;
     }
 
@@ -76,7 +92,7 @@ public class MatrixCipher {
         return N_length;
     }
 
-    public String getDecoded() {
+    public String getDecode() {
         return sentenceDecoded;
     }
 }

@@ -20,7 +20,7 @@ class Rot13CipherTest {
         //then
         assertEquals("", cipher.getBase());
         assertEquals("", cipher.getEncode());
-        assertEquals("", cipher.getDecoded());
+        assertEquals("", cipher.getDecode());
     }
 
     @DisplayName("Check encode function")

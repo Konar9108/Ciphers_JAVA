@@ -23,7 +23,7 @@ class AtBashCipherTest {
     public void emptyArgConstructorReturnEmptyString() {
         assertEquals("", cipherNoArg.getBase());
         assertEquals("", cipherNoArg.getEncode());
-        assertEquals("", cipherNoArg.getDecoded());
+        assertEquals("", cipherNoArg.getDecode());
     }
 
     @DisplayName("Should be encoded sentence")

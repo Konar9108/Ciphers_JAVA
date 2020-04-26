@@ -32,7 +32,7 @@ class MatrixCipherTest {
     public void emptyArgConstructorReturnEmptyString() {
         assertEquals("", cipherNoArg.getBase());
         assertEquals("", cipherNoArg.getEncode());
-        assertEquals("", cipherNoArg.getDecoded());
+        assertEquals("", cipherNoArg.getDecode());
     }
 
     @Test

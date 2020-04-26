@@ -19,7 +19,7 @@ class CesarCipherTest {
         //then
         assertEquals("", cipher.getBase());
         assertEquals("", cipher.getEncode());
-        assertEquals("", cipher.getDecoded());
+        assertEquals("", cipher.getDecode());
     }
 
     @DisplayName("Check encode function")
@@ -48,7 +48,7 @@ class CesarCipherTest {
         final CesarCipher cipher = new CesarCipher(entry);
         //when
         cipher.decode();
-        String decoded = cipher.getDecoded();
+        String decoded = cipher.getDecode();
         //then
         assertEquals(result, decoded);
 

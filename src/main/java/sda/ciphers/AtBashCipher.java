@@ -1,6 +1,6 @@
 package sda.ciphers;
 
-public class AtBashCipher {
+public class AtBashCipher implements ICipher {
     private String alphabet = "abcdefghijklmnopqrstuvwxyz";
     private String base;
     private String encoded;
@@ -9,6 +9,11 @@ public class AtBashCipher {
     public AtBashCipher(String toEncode) {
         this();
         base = toEncode;
+    }
+
+    @Override
+    public void setBase(String base) {
+        this.base = base;
     }
 
     public AtBashCipher() {
@@ -44,7 +49,7 @@ public class AtBashCipher {
         encode();
     }
 
-    public String getDecoded() {
+    public String getDecode() {
         return decoded;
     }
 }

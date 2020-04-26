@@ -1,6 +1,7 @@
 package sda.gui.tool;
 
 import sda.ciphers.CesarCipher;
+import sda.ciphers.ICipher;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -14,16 +15,14 @@ public class ProceedAlgorithm implements ActionListener {
     private JComboBox cipher;
     private JRadioButton encode;
     private JTextArea log;
-    private CesarCipher algorithmCipher;
+    private ICipher algorithmCipher;
 
     public ProceedAlgorithm(JTextField input, JTextField output, JComboBox ciphers,
                             JRadioButton encode, JTextArea log) {
         this.encode = encode;
         this.log = log;
-
         this.input = input;
         this.output = output;
-
         this.cipher = ciphers;
     }
 
@@ -59,11 +58,10 @@ public class ProceedAlgorithm implements ActionListener {
 
         if (encode.isSelected()) {
             algorithmCipher.encode();
-        }
-        else {
+        } else {
             algorithmCipher.decode();
         }
 
-        return (encode.isSelected()) ? algorithmCipher.getEncode() : algorithmCipher.getDecoded();
+        return (encode.isSelected()) ? algorithmCipher.getEncode() : algorithmCipher.getDecode();
     }
 }

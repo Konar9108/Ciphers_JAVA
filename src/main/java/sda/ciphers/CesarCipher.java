@@ -1,6 +1,6 @@
 package sda.ciphers;
 
-public class CesarCipher {
+public class CesarCipher implements ICipher {
     private String alphabet = "abcdefghijklmnopqrstuvwxyz";
     private String base;
     private String encoded;
@@ -79,7 +79,7 @@ public class CesarCipher {
         return (position + 23) % 26;
     }
 
-    public String getDecoded() {
+    public String getDecode() {
         return decoded;
     }
 }
