@@ -35,7 +35,7 @@ public class ProceedAlgorithm implements ActionListener {
 
         //nalezy pobrac algorytm szyfrowania
 
-        algorithmCipher = new CesarCipher();
+        algorithmCipher = CipherFactory.getAlgorithm((String)cipher.getSelectedItem());
 
         //otwiera i zamyka
         try (
