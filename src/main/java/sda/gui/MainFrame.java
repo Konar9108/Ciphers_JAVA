@@ -1,5 +1,6 @@
 package sda.gui;
 
+import sda.ciphers.CiphersList;
 import sda.gui.tool.InputManager;
 import sda.gui.tool.ProceedAlgorithm;
 
@@ -104,7 +105,7 @@ public class MainFrame extends JFrame implements ActionListener {
         JButton choseOutput = new JButton("Select");
         choseOutput.addActionListener(new InputManager(outputField, logArea));
 
-        ciphersCombo = new JComboBox(new String[]{"Cesar", "ROT-13"});
+        ciphersCombo = new JComboBox(CiphersList.getCiphersList());
 
         encodeRadioBtn = new JRadioButton("Encode");
         encodeRadioBtn.setSelected(true);
