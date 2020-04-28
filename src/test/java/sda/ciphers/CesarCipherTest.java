@@ -15,7 +15,7 @@ class CesarCipherTest {
     public void emptyArgConstructorReturnEmptyString() {
         final CesarCipher cipher = new CesarCipher();
         assertEquals("", cipher.getBase());
-        assertEquals("", cipher.getEncode());
+        assertEquals("", cipher.getEncoded());
         assertEquals("", cipher.getDecoded());
     }
 
@@ -27,7 +27,7 @@ class CesarCipherTest {
     ){
         final CesarCipher cipher = new CesarCipher(entry);
         cipher.encode();
-        String encode = cipher.getEncode();
+        String encode = cipher.getEncoded();
         assertEquals(result, encode);
     }
 

@@ -14,7 +14,7 @@ class Rot13CipherTest {
     public void emptyArgConstructorReturnEmptyString() {
         final Rot13Cipher cipher = new Rot13Cipher();
         assertEquals("", cipher.getBase());
-        assertEquals("", cipher.getEncode());
+        assertEquals("", cipher.getEncoded());
         assertEquals("", cipher.getDecoded());
     }
 
@@ -26,7 +26,7 @@ class Rot13CipherTest {
     ){
         final Rot13Cipher cipher = new Rot13Cipher(entry);
         cipher.encode();
-        String encode = cipher.getEncode();
+        String encode = cipher.getEncoded();
         assertEquals(result, encode);
     }
 

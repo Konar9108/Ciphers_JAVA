@@ -1,6 +1,6 @@
 package sda.ciphers;
 
-public class Rot13Cipher {
+public class Rot13Cipher implements ICipher {
     private String base;
     private String encoded;
     private String decoded;
@@ -21,7 +21,7 @@ public class Rot13Cipher {
         return base;
     }
 
-    public String getEncode() {
+    public String getEncoded() {
         return encoded;
     }
 

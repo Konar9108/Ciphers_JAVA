@@ -1,6 +1,6 @@
 package sda.ciphers;
 
-public class CesarCipher {
+public class CesarCipher implements ICipher {
     private String base;
     private String encoded;
     private String decoded;
@@ -21,7 +21,7 @@ public class CesarCipher {
         return base;
     }
 
-    public String getEncode() {
+    public String getEncoded() {
         return encoded;
     }
     public void decode() {
@@ -39,8 +39,6 @@ public class CesarCipher {
         decoded = tempDecode.toString();
 
     }
-
-
     public void encode() {
         StringBuilder tempEncode = new StringBuilder();
         for (int i = 0; i < base.length(); i++) {
