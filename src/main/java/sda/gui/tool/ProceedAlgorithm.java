@@ -1,6 +1,5 @@
 package sda.gui.tool;
 
-import sda.ciphers.CesarCipher;
 import sda.ciphers.ICipher;
 
 import javax.swing.*;

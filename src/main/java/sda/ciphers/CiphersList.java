@@ -1,8 +1,6 @@
 package sda.ciphers;
 
-import javax.crypto.Cipher;
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 public enum CiphersList {
     CESAR("Cesar"),

@@ -31,10 +31,22 @@ public class AtBashCipher implements ICipher {
         final int size = base.length();
         int index = -1;
         while (++index < size) {
-            final char letter = base.charAt(index);
+             char letter = base.charAt(index);
+
+             if (letter == ' '){
+                 stringBuilder.append(letter);
+                 continue;
+             }
+
             final boolean isLower = Character.isLowerCase(letter);
+            if (!isLower) {
+                letter = Character.toLowerCase(letter);
+            }
             final int position = alphabet.indexOf(letter);
-            final char newLetter = alphabet.charAt(25 - position);
+            char newLetter = alphabet.charAt(25 - position);
+            if (!isLower){
+                newLetter = Character.toUpperCase(newLetter);
+            }
             stringBuilder.append(newLetter);
         }
         encoded = stringBuilder.toString();
